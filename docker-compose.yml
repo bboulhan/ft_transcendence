@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  server:
+    build: ./backend
+    container_name: server
+    image: server_image
+    ports:
+      - "3001:3001"
+    volumes:
+      - "./backend:/app"
+      - "/app/node_modules"
+  database:
+    image: postgres
+    container_name: database
+    environment:
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 5432:5432
+    volumes:
+      - "./backend/trsc_db:/var/lib/postgresql/data"
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    image: frontend_image
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
