@@ -1,12 +1,7 @@
 "use client"
 
 import avatar from "../../../public/avatar.jpeg";
-import React, { use, useRef } from 'react';
-import Logout from '../Components/Logout';
 import { useEffect, useState } from 'react';
-import Navbar from '../Components/navbar';
-import Cookies from 'js-cookie';
-import LoG from '../Components/Log';
 import Image from "next/image";
 import { FaCog } from "react-icons/fa";
 import { GetData } from '../Components/CheckLogin';
@@ -18,6 +13,7 @@ export default  function Profile(){
 	const { online, setOnline } = useLogContext();
 	const [data, setData] = useState({} as any);
 	const [wait, checkwait] = useState(false);
+
 	async function fetchData() {
 		const data = await GetData("Profile") as any;
 		setData(data);	
@@ -27,7 +23,7 @@ export default  function Profile(){
 		checkwait(true);
 		if (online == "ON")
 			fetchData();
-	}, []);
+	}, [online]);
 
 	if (!wait) {
 		return (<div>loading...</div>)
