@@ -24,16 +24,17 @@
 	display: flex;
 	flex-direction: row;
 	position: relative;
+	margin-bottom: 6.5vh;
 }
 
-.sec1 .searchBar input{
+.searchInput{
 	background-color: rgba(13, 13, 13, 1);
 	height: 54px;
 	margin:15px 20px;
 	border-radius: 20px;
 	width:76%;
 	text-align: left;
-	padding: 0px 40px;
+	padding: 0px 15%;
 	border: 1px solid 
 	rgba(255, 255, 255, 0.2);
 }
@@ -43,9 +44,11 @@
 	display: block;
 	width: 43px;
 	height: 31px;
-	margin: 28px 6% 24px 3%;
+	margin: 28px 6% 24px;
 	border-radius: 8px;
 	padding: 5px 4px;
+	position: absolute;
+	right: 0px;
 }
 
 .Options .straight{
@@ -68,8 +71,10 @@
 }
 .sec1 .Groups .content_g{
 	overflow-y: scroll;
-	height: 26vh;
+	height: 26.5vh;
 }
+
+.sec1 .Groups .content_g div:first-child{margin-top: 0px;}
 
 .sec1 .Groups .content_g::-webkit-scrollbar{display: none;}
 
@@ -82,16 +87,30 @@
 	line-height: 30px;
 }
 
+
 .g_img{
-	width:70px;
+	width: 70px;
 	height: 70px;
 	border-radius: 50%;
 }
 
+.sec1 .g_img{
+	width:65px;
+	height: 65px;
+	border-radius: 50%;
+}
+
+
 .sec1 .content{
 	display: flex;
-	margin: 22px 10px;
+	margin: 15px 10px;
+	padding:8px;
 	position: relative;
+	cursor: pointer;
+	border-radius: 10px;
+	&:hover{
+		background-color: rgba(255, 255, 255, 0.1);
+	}
 }
 
 .sec1 .content h4{
@@ -114,18 +133,18 @@
 
 .sec1 .content p{
 	position: absolute;
-	top:36px;
+	top:40px;
 	left:90px;
 	color: rgba(255, 255, 255, 0.5);
 }
 
 .sec1 .line{
-	width: 96%;
+	width: 91%;
 	height: 1px;
 	background-color: rgba(255, 255, 255, 0.25);
-	margin: 20px 10px;
+	margin: 10px 10px;
 	position: absolute;
-	top: 60px;
+	top: 77px;
 }
 
 /***************************************** Friends ************************************/
@@ -142,6 +161,7 @@
 .Friends .content_f{
 	overflow-y: scroll;
 	height: 42.7vh;
+	& div:first-child{margin-top: 0px;}
 }
 
 .content_f::-webkit-scrollbar{display: none;}
@@ -158,6 +178,11 @@
 	border: 2px solid #ffffff;
 }
 
+.Friends .status{
+	top:54px;
+	left:55px;
+}
+
 
 /***************************************** Sec2 Chat ************************************/
 
@@ -167,11 +192,9 @@
 	margin:25px 18px 10px 6px;
 	border: 1px solid black;
 	border-radius: 20px;
-	height: 86.5vh;
 	box-shadow: 2px 6px 15px 2px rgba(12, 10, 11, 0.8);
 	width: 64%;
-	padding:2vh;
-	
+	padding:2vh 2vh 0vh;
 }
 
 .Chat .User{
@@ -187,6 +210,7 @@
 	margin-left: 30px;
 	margin-top: 4px;
 	color : rgba(255, 255, 255, 1);
+	cursor: pointer;
 }
 
 .Chat .User span{
@@ -233,8 +257,8 @@
 .Chat .Msg{
 	display: flex;
 	flex-direction: column;
-	margin: 60px 0px 30px;
-	height: 65vh;
+	margin: 5vh 0px 2.5vh;
+	height: 65.5vh;
 	overflow-y:auto;
 }
 
@@ -315,13 +339,13 @@
 .Chat .Send{
 	display: flex;
 	flex-direction: row;
-	margin-top:50px;
+	margin-top: 1.5vh;
 	position: relative;
-	padding: 1.5vh 0px;
+	padding: 1.5vh 0px 0vh;
 }
 
 .Send .line{
-	top:-30px;
+	top:-2.6vh;
 	background-color: rgba(255, 255, 255, 0.25);
 }
 
@@ -330,7 +354,7 @@
 	background-color: #1A66FF;
 	border-radius: 10px;
 	width: 55px;
-	height: 55px;
+	height: 50px;
 }
 
 .Send button div{
@@ -342,13 +366,53 @@
 	margin: 2px 0px 0px 17px;
 }
 
-.Send input{
+.Send .sendImg{
+	width: 30px;
+	height: 30px;
+	margin: 10px 0px 0px 12px;
+}
+
+.Send section{
 	background-color: rgba(13, 13, 13, 1);
 	border-radius: 10px;
 	width: 92%;
 	margin-right: 10px;
 	padding: 10px 30px;
-	/* padding: 0px 85%; */
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.Send section input{
+	background-color: rgba(13, 13, 13, 1);
+	border: none;
+	width: 100%;
+	color: rgba(255, 255, 255);
+	font-size: 16px;
+}
+
+
+.Send section .sendImg{
+	all:initial;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	right:10px;
+	top:5px;
+	cursor: pointer;
+	z-index: 1;
+	opacity: 0.01;
+
+}
+
+
+.Send .icon{
+	width: 35px;
+	height: 38px;
+	cursor: pointer;
+	position: absolute;
+	right:10px;
+	top:5px;
 }
 
 input:focus{

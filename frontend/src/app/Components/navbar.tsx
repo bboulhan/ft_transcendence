@@ -2,13 +2,14 @@
 import avatar from "../../../public/avatar.jpeg";
 import Image from "next/image";
 import Link from "next/link";
-import Logout from "./Logout";
-import { GetData } from "./CheckLogin";
+import Logout from "./Log/Logout";
+import { GetData } from "./Log/CheckLogin";
 import { useEffect, useRef, useState } from "react";
 import '../assest/navbar.css';
-import Cookies from "js-cookie";
-import { useLogContext } from "./LogContext";
-
+import { useLogContext } from "./Log/LogContext";
+import SearchBar from "./Fetch/SearchBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser ,faMessage , faTableTennisPaddleBall} from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
@@ -19,13 +20,13 @@ export default function Navbar() {
 	const [wait, checkwait] = useState(false);
 
 	async function fetchData() {
-		const data = await GetData("Navbar") as any;
-		setData(data);	
+		const data = await GetData({Api : "Navbar", user: ""}) as any;
+		setData(data);
 	}
 
 	useEffect(() => {
 		checkwait(true);
-		if (online == "ON"){
+		if (online == "ON") {
 			fetchData();
 		}
 	}, [online]);
@@ -39,15 +40,17 @@ export default function Navbar() {
 		return (<></>);
 	return (
 		<>
-			<header id="header">
-				<div>
-					
-					<Link href="/"><Image id="avatar" src={photo} alt="username" priority={true} width={60} height={60}></Image></Link>
-				</div>
+			<header id="header" >
+				<Link href="/"><Image id="avatar" src={photo} alt="username" priority={true} width={60} height={60}></Image></Link>
+				<SearchBar title={"profile"} />
 				<nav className="nav">
-					<Link href="/" ><li> Profile</li></Link>
-					<Link href="./chat" ><li> Chat</li></Link>
-					<Link href="./game" ><li> Game</li></Link>
+
+					{/* <div> */}
+					{/* </div> */}
+						
+					<Link href="/" ><li><FontAwesomeIcon icon={faUser} className="NavbarIcons"/>Profile</li></Link>
+					<Link href="/chat"><li><FontAwesomeIcon icon={faMessage} className="NavbarIcons" /> Chat</li></Link>
+					<Link href="/game"><li><FontAwesomeIcon icon={faTableTennisPaddleBall} className="NavbarIcons"  /> Game</li></Link>
 				</nav>
 
 				<Logout />

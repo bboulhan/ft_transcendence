@@ -3,9 +3,6 @@ import { useEffect, useState , useRef} from "react";
 import '../../assest/chatComponents.css';
 import '../../assest/chat.css';
 
-import styled from 'styled-components';
-
-const ChildStyle = styled.div``;
 
 export default function CreateGroup({createG} : {createG: any}){
 
@@ -38,7 +35,7 @@ export default function CreateGroup({createG} : {createG: any}){
 
 	return(
 		<> 
-			<form className='CreateGroup' onSubmit={submitForm}>
+			<form className='CreateGroup' onSubmit={submitForm} id="child">
 				<h1>CREATE NEW GROUP</h1>
 				<button onClick={() =>{ createG(false)}} className='closeBtn'><div></div></button>
 				<div className='line'></div>
@@ -67,7 +64,7 @@ export default function CreateGroup({createG} : {createG: any}){
 				<input style={prStyle} ref={gPass} type="password" placeholder="Enter group password" />
 				<label>Group picture</label>
 				<input ref={gPic} type="file" />
-				<button type='submit'>CREATE GROUP</button>
+				<button className='submit' type='submit'>CREATE GROUP</button>
 			</form>
 		</>
 	)

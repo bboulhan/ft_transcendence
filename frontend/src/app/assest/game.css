@@ -1,9 +1,14 @@
 
-
 #container{
 	min-width: 1500px;
 	margin-top:100px;
 	background-color: black;
 	width: fit-content;
 	padding:60px;
+}
+
+.GameMain{
+	background-color: #1F295E;
+	height: 92.8vh;
+	/* width: 100%; */
 }
