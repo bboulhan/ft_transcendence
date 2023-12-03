@@ -213,7 +213,7 @@ input[type=file]::file-selector-button:hover {
 	&:hover{background-color: rgb(79, 85, 92);}
 }
 
-.Add .content .user h3{
+.Add .content h3{
 	font: 600 18px 'Poppins', sans-serif;
 	margin: 0px 10px;
 }
@@ -227,11 +227,23 @@ input[type=file]::file-selector-button:hover {
 	&:hover{opacity: 0.85;}
 }
 
-.content .user .g_img{
+.Add .content .g_img{
 	width:initial;
 	height: initial;
 	border:2px solid #ffff;
 }
+
+.Add .content .Settings{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 10px 0px;
+	background-color: rgba(117, 125, 134, 1);
+	border-radius: 10px;
+	padding: 4px 15px;
+	cursor: pointer;
+}
+
 
 #Confirm{
 	background: linear-gradient(133deg, #4E4E4E -16.04%, #333333 9.33%, #1A1A1A 32.02%, #1A1A1A 62.06%, #262626 87.42%, #4E4E4E 112.12%);

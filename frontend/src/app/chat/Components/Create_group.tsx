@@ -25,7 +25,6 @@ export default function CreateGroup({createG} : {createG: any}){
 		else{
 			setPrStyle({});
 		}
-		console.log(gPrivacy.current?.value, protectedChoice);
 	}, [protectedChoice]);
 
 	function submitForm(e : any){
@@ -47,15 +46,15 @@ export default function CreateGroup({createG} : {createG: any}){
 				<label>Group privacy</label>
 				<form className='G_privacy'>
 					<div>
-						<input ref={gPrivacy} type="radio" id="public" name="privacy" value="public"  onChange={e=> setProtectedChoice(true)}/>
+						<input ref={gPrivacy} type="radio"  name="privacy" value="PUBLIC"  onChange={e=> setProtectedChoice(true)}/>
 						<label htmlFor="public">Public</label>
 					</div>
 					<div>
-						<input ref={gPrivacy} type="radio" id="private" name="privacy" value="private" onChange={e=> setProtectedChoice(true)}/>
+						<input ref={gPrivacy} type="radio"  name="privacy" value="PRIVATE" onChange={e=> setProtectedChoice(true)}/>
 						<label htmlFor="private">Private</label>
 					</div>
 					<div>
-						<input ref={gPrivacy} type="radio" id="protected" name="privacy" value="protected" defaultChecked onChange={e=> setProtectedChoice(false)}/>
+						<input ref={gPrivacy} type="radio"  name="privacy" value="PROTECTED" defaultChecked onChange={e=> setProtectedChoice(false)}/>
 						<label htmlFor="protected">Protected</label>
 					</div>
 				</form>

@@ -16,6 +16,7 @@ export interface Api{
 	getChat: string,
 	sendMsg : string,
 	Friends: string,
+	Role : string,
 }
 
 export const APIs : Api = { 
@@ -34,5 +35,6 @@ export const APIs : Api = {
 	Remove: "http://localhost:3001/user/remove",
 	getChat: "http://localhost:3001/message/chat/?username=",
 	sendMsg : "http://localhost:3001/message/send",
-	Friends: "http://localhost:3001/user/friends",
+	Friends: "http://localhost:3001/user/friends/?chat=",
+	Role : "http://localhost:3001/role",
 };
