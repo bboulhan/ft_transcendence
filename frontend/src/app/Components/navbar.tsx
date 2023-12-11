@@ -6,15 +6,24 @@ import Logout from "./Log/Logout";
 import { GetData } from "./Log/CheckLogin";
 import { useEffect, useRef, useState } from "react";
 import '../assest/navbar.css';
-import { useLogContext } from "./Log/LogContext";
+import { useLogContext , useSocket, useMe} from "./Log/LogContext";
 import SearchBar from "./Fetch/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUser ,faMessage , faTableTennisPaddleBall} from "@fortawesome/free-solid-svg-icons";
+import { faUser ,faMessage , faTableTennisPaddleBall , faBell} from "@fortawesome/free-solid-svg-icons";
+
+// import { WebSocket } from "./Log/LogContext";
+// import { useContext } from "react";
 
 export default function Navbar() {
 
+	
+	// const socket = useSocket();
+	const {me, setMe} = useMe();
+	
+
 	let photo = avatar;
 	const { online, setOnline } = useLogContext();
+
 
 	const [data, setData] = useState({} as any);
 	const [wait, checkwait] = useState(false);
@@ -22,7 +31,10 @@ export default function Navbar() {
 	async function fetchData() {
 		const data = await GetData({Api : "Navbar", user: ""}) as any;
 		setData(data);
+		setMe(data);
+		
 	}
+
 
 	useEffect(() => {
 		checkwait(true);
@@ -35,7 +47,7 @@ export default function Navbar() {
 	if (data?.photo != null) {
 		photo = data.photo;
 	}
-
+	
 	if (!wait || online == "OFF")
 		return (<></>);
 	return (
@@ -52,7 +64,8 @@ export default function Navbar() {
 					<Link href="/chat"><li><FontAwesomeIcon icon={faMessage} className="NavbarIcons" /> Chat</li></Link>
 					<Link href="/game"><li><FontAwesomeIcon icon={faTableTennisPaddleBall} className="NavbarIcons"  /> Game</li></Link>
 				</nav>
-
+				 
+				<button className="NotifBtn"><FontAwesomeIcon icon={faBell} className="icon" /></button>
 				<Logout />
 			</header>
 
